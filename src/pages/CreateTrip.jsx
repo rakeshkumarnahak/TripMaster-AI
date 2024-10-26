@@ -135,8 +135,9 @@ const CreateTrip = () => {
           style: { color: "tomato", fontSize: "16px" },
         });
       }
+      setLoading(false);
       console.log(
-        "API Error: " + error.response ? error.response?.data : error.message
+        "API Error: " + error.response ? error.response?.data : error
       );
     }
   };
