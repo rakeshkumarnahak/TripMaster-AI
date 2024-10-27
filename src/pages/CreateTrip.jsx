@@ -257,12 +257,12 @@ const CreateTrip = () => {
           </div>
 
           <Dialog open={openDialog} onOpenChange={setOpenDialog}>
-            <DialogContent>
+            <DialogContent className="py-8">
               <DialogHeader>
                 <DialogTitle>
                   <img src={logo} alt="TripMaster Logo" />
                 </DialogTitle>
-                <DialogDescription>
+                <DialogDescription className="text-left pt-1">
                   <h2 className="font-bold text-lg">Signin With Google</h2>
                   <p className="text-md text-gray-400">
                     Signin to the app with google authentication securely

@@ -60,7 +60,11 @@ const Header = () => {
   return (
     <div className="flex items-center justify-between px-4 py-4 shadow-sm z-40 bg-white">
       <Link to={"/"}>
-        <img src={logo} alt="Tripmaster.AI logo" className="h-8 w-full" />
+        <img
+          src={logo}
+          alt="Tripmaster.AI logo"
+          className="h-7 md:h-8 w-full"
+        />
       </Link>
 
       {user ? (
@@ -68,15 +72,15 @@ const Header = () => {
       ) : (
         <Dialog open={openDialog} onOpenChange={setOpenDialog}>
           <DialogTrigger>
-            <Button>Signup</Button>{" "}
+            <Button className="text-sm">Signup</Button>{" "}
           </DialogTrigger>
           <DialogContent>
             <DialogHeader>
               <DialogTitle>
                 <img src={logo} alt="TripMaster Logo" />
               </DialogTitle>
-              <DialogDescription>
-                <h2 className="font-bold text-lg">Signin With Google</h2>
+              <DialogDescription className="text-left pt-1">
+                <h2 className="font-bold text-lg ">Signin With Google</h2>
                 <p className="text-md text-gray-400">
                   Signin to the app with google authentication securely
                 </p>
