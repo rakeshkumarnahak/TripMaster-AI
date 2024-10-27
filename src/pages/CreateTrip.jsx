@@ -155,19 +155,19 @@ const CreateTrip = () => {
     <div>
       <div className="sm:px-10 md:px-32 lg:px-56 xl:px-72 px-5 mt-10">
         {/* Heading Text */}
-        <h2 className="font-bold text-3xl">
+        <h2 className="font-bold text-2xl md:text-3xl">
           Tell us your travel preferences 🏕️🌴
         </h2>
-        <p className="mt-3 text-gray-500 text-xl">
+        <p className="mt-3 text-gray-500 text-base md:text-xl">
           Just provide some basic information, and our trip planner will
           generate a customized itenary based on your preferences.
         </p>
 
         {/* Adding the Form fields */}
-        <div className="mt-20 flex flex-col gap-10">
+        <div className="mt-12 md:mt-20 flex flex-col gap-10">
           {/* Adding the google place autocomplete */}
           <div>
-            <h2 className="text-xl my-3 font-medium">
+            <h2 className="text-lg md:text-xl my-1 md:my-3 font-medium">
               What is your destination of choice?
             </h2>
             <GooglePlacesAutocomplete
@@ -184,7 +184,7 @@ const CreateTrip = () => {
 
           {/* Adding the no of days input box */}
           <div>
-            <h2 className="text-xl my-3 font-medium">
+            <h2 className="text-lg md:text-xl my-1 md:my-3 font-medium">
               How many days are you planning?
             </h2>
             <Input
@@ -196,7 +196,9 @@ const CreateTrip = () => {
 
           {/* Adding the Budget options */}
           <div>
-            <h2 className="text-xl my-3 font-medium">What is your budget?</h2>
+            <h2 className="text-lg md:text-xl my-1 md:my-3 font-medium">
+              What is your budget?
+            </h2>
             <div className="grid grid-cols-3 gap-5 mt-5 ">
               {selectBudgetOptions.map((item, index) => (
                 <div
@@ -207,9 +209,11 @@ const CreateTrip = () => {
                   }`}
                   onClick={() => handleInputChange("budget", item.title)}
                 >
-                  <h2 className="text-4xl">{item.icon}</h2>
-                  <h2 className="text-lg font-bold">{item.title}</h2>
-                  <h2 className="text-gray-500 text-sm">{item.description}</h2>
+                  <h2 className="text-xl md:text-4xl">{item.icon}</h2>
+                  <h2 className="text-md md:text-lg font-bold">{item.title}</h2>
+                  <h2 className="text-xs md:text-sm text-gray-500 ">
+                    {item.description}
+                  </h2>
                 </div>
               ))}
             </div>
@@ -217,7 +221,7 @@ const CreateTrip = () => {
 
           {/* Adding the no of travelers options */}
           <div>
-            <h2 className="text-xl my-3 font-medium">
+            <h2 className="text-lg md:text-xl my-1 md:my-3 font-medium">
               Who do you want to travel with on your next adventure?
             </h2>
             <div className="grid grid-cols-3 gap-5 mt-5 ">
@@ -230,9 +234,11 @@ const CreateTrip = () => {
                   }`}
                   onClick={() => handleInputChange("travelers", item.people)}
                 >
-                  <h2 className="text-4xl">{item.icon}</h2>
-                  <h2 className="text-lg font-bold">{item.title}</h2>
-                  <h2 className="text-gray-500 text-sm">{item.description}</h2>
+                  <h2 className="text-xl md:text-4xl">{item.icon}</h2>
+                  <h2 className="text-md md:text-lg font-bold">{item.title}</h2>
+                  <h2 className="text-xs md:text-sm text-gray-500 ">
+                    {item.description}
+                  </h2>
                 </div>
               ))}
             </div>

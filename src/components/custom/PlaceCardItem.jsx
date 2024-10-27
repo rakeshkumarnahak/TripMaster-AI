@@ -52,9 +52,20 @@ const PlaceCardItem = ({ place }) => {
           className="w-32 h-32 object-cover rounded-xl "
         />
         <div className="flex flex-col gap-1">
-          <h2 className="font-bold text-lg">{place.placeName}</h2>
-          <p className="text-sm text-gray-500">{place.placeDetails}</p>
-          <p className="text-gray-800">⌚ {place.timeTaken}</p>
+          <h2 className="font-bold text-md md:text-normal lg:text-lg">
+            {place.placeName}
+          </h2>
+          <p className="hidden lg:flex text-xs md:text-sm text-gray-500">
+            {place.placeDetails}
+          </p>
+          <p className="lg:hidden text-xs lg:text-sm text-gray-500">
+            {place.placeDetails.length > 150
+              ? `${place.placeDetails.slice(0, 150)}... `
+              : place.placeDetails}
+          </p>
+          <p className="text-gray-800 text-sm md:text-md">
+            ⏱ {place.timeTaken}
+          </p>
         </div>
       </div>
     </Link>

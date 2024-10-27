@@ -3,6 +3,7 @@ import { IoIosSend } from "react-icons/io";
 import { Button } from "../ui/button";
 import { useEffect, useState } from "react";
 import { getPlaceData, PHOTO_URL } from "@/services/globalApis";
+import { Badge } from "../ui/badge";
 
 const InformationSection = ({ tripData }) => {
   const [photoUrl, setPhotoUrl] = useState("");
@@ -49,28 +50,45 @@ const InformationSection = ({ tripData }) => {
         alt="placeholderImage"
         className="h-96 w-full object-cover rounded-xl"
       />
-      <div className="flex justify-between items-center">
-        <div className="my-5 flex flex-col gap-5">
+      <div className="my-5 flex flex-col gap-5">
+        <div className="flex justify-between items-center">
           <h2 className="font-bold text-3xl">
             {tripData?.userSelection?.location?.label}
           </h2>
-          <div className="flex justify-between ">
-            <div className="flex items-center gap-2">
-              <h2 className="p-1 px-3 bg-gray-200 rounded-full text-gray-500 sm:text-xs md:text-sm lg:text-md">
-                📆 {tripData?.userSelection?.noOfDays} Day
-              </h2>
-              <h2 className="p-1 px-3 bg-gray-200 rounded-full text-gray-500 sm:text-xs md:text-sm lg:text-md">
-                💰 {tripData?.userSelection?.budget} budget
-              </h2>
-              <h2 className="p-1 px-3 bg-gray-200 rounded-full text-gray-500 sm:text-xs md:text-sm lg:text-md">
-                🥂 No of travelers: {tripData?.userSelection?.travelers}
-              </h2>
-            </div>
+          <Button className="h-7 w-7 md:h-fit md:w-fit">
+            <IoIosSend />
+          </Button>
+        </div>
+        <div className="flex justify-between ">
+          <div className="hidden md:flex items-center gap-2">
+            {/* Badges for larger screen */}
+            <Badge
+              variant="outline"
+              className="bg-gray-200 text-xs md:text-normal"
+            >
+              📆 {tripData?.userSelection?.noOfDays} Day
+            </Badge>
+            <Badge variant="outline" className="bg-gray-200">
+              💰 {tripData?.userSelection?.budget} budget
+            </Badge>
+            <Badge variant="outline" className="bg-gray-200">
+              🥂 No of travelers: {tripData?.userSelection?.travelers}
+            </Badge>
+          </div>
+
+          {/* Badges for smaller screen */}
+          <div className="flex items-center gap-2 md:hidden">
+            <Badge variant="outline" className="bg-gray-200">
+              {tripData?.userSelection?.noOfDays} Day
+            </Badge>
+            <Badge variant="outline" className="bg-gray-200">
+              {tripData?.userSelection?.budget} budget
+            </Badge>
+            <Badge variant="outline" className="bg-gray-200">
+              {tripData?.userSelection?.travelers}
+            </Badge>
           </div>
         </div>
-        <Button>
-          <IoIosSend />
-        </Button>
       </div>
     </div>
   );

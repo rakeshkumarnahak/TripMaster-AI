@@ -47,13 +47,13 @@ const TripCard = ({ trip }) => {
         <img
           src={photoUrl ? photoUrl : placeholderImage}
           alt={`Cover image of ${trip.userSelection.location.label}`}
-          className="rounded-xl object-cover h-60 w-full"
+          className="rounded-xl object-cover h-40 md:h-60 w-full"
         />
         <div>
-          <h2 className="font-semibold text-lg">
+          <h2 className="font-semibold text-base md:text-lg">
             {trip.userSelection.location.label}
           </h2>
-          <p className="text-sm text-gray-500">
+          <p className="text-xs md:text-sm text-gray-500">
             {trip.userSelection.noOfDays} Days trip with{" "}
             {trip.userSelection.budget} budget for{" "}
             {trip.userSelection.travelers}

@@ -1,10 +1,6 @@
 import { Button } from "../ui/button";
 import logo from "../../assets/logo.svg";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
+
 import { googleLogout, useGoogleLogin } from "@react-oauth/google";
 import { useState } from "react";
 import axios from "axios";
@@ -18,6 +14,7 @@ import {
 } from "../ui/dialog";
 import { FcGoogle } from "react-icons/fc";
 import { Link, useNavigate } from "react-router-dom";
+import UserNavIcon from "./UserNavIcon";
 
 const Header = () => {
   const [openDialog, setOpenDialog] = useState(false);
@@ -63,34 +60,11 @@ const Header = () => {
   return (
     <div className="flex items-center justify-between px-4 py-4 shadow-sm z-40 bg-white">
       <Link to={"/"}>
-        <img src={logo} alt="Tripmaster.AI logo" />
+        <img src={logo} alt="Tripmaster.AI logo" className="h-8 w-full" />
       </Link>
 
       {user ? (
-        <div className="flex items-center gap-5">
-          <Link to={"/create-trip"}>
-            <Button variant="outline" className="rounded-full">
-              + Create Trips
-            </Button>
-          </Link>
-          <Link to={"/my-trips"}>
-            <Button variant="outline" className="rounded-full">
-              My Trips
-            </Button>
-          </Link>
-          <Popover>
-            <PopoverTrigger>
-              <img
-                src={user.picture}
-                alt="Your profile picture"
-                className="h-9 w-9 rounded-full"
-              />
-            </PopoverTrigger>
-            <PopoverContent className="cursor-pointer" onClick={logout}>
-              Logout
-            </PopoverContent>
-          </Popover>
-        </div>
+        <UserNavIcon userPicture={user.picture} logout={logout} />
       ) : (
         <Dialog open={openDialog} onOpenChange={setOpenDialog}>
           <DialogTrigger>
